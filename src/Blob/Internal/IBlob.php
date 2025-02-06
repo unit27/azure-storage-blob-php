@@ -47,30 +47,30 @@ interface IBlob
     /**
     * Gets the properties of the service.
     *
-    * @param ServiceOptions $options optional service options.
+    * @param ServiceOptions|null $options optional service options.
     *
     * @return GetServicePropertiesResult
     *
     * @see http://msdn.microsoft.com/en-us/library/windowsazure/hh452239.aspx
     */
-    public function getServiceProperties(ServiceOptions $options = null);
+    public function getServiceProperties(?ServiceOptions $options = null);
 
     /**
      * Creates promise to get the properties of the service.
      *
-     * @param ServiceOptions $options The optional parameters.
+     * @param ServiceOptions|null $options The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
      * @see http://msdn.microsoft.com/en-us/library/windowsazure/hh452239.aspx
      */
-    public function getServicePropertiesAsync(ServiceOptions $options = null);
+    public function getServicePropertiesAsync(?ServiceOptions $options = null);
 
     /**
     * Sets the properties of the service.
     *
     * @param ServiceProperties           $serviceProperties new service properties
-    * @param ServiceOptions $options           optional parameters
+    * @param ServiceOptions|null $options           optional parameters
     *
     * @return void
     *
@@ -78,32 +78,32 @@ interface IBlob
     */
     public function setServiceProperties(
         ServiceProperties $serviceProperties,
-        ServiceOptions    $options = null
+        ?ServiceOptions $options = null
     );
 
     /**
      * Retieves statistics related to replication for the service. The operation
      * will only be sent to secondary location endpoint.
      *
-     * @param  ServiceOptions|null $options The options this operation sends with.
+     * @param ServiceOptions|null $options The options this operation sends with.
      *
      * @return GetServiceStatsResult
      *
      * @see https://docs.microsoft.com/en-us/rest/api/storageservices/get-blob-service-stats
      */
-    public function getServiceStats(ServiceOptions $options = null);
+    public function getServiceStats(?ServiceOptions $options = null);
 
     /**
      * Creates promise that retrieves statistics related to replication for the
      * service. The operation will only be sent to secondary location endpoint.
      *
-     * @param  ServiceOptions|null $options The options this operation sends with.
+     * @param ServiceOptions|null $options The options this operation sends with.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
      * @see  https://docs.microsoft.com/en-us/rest/api/storageservices/get-blob-service-stats
      */
-    public function getServiceStatsAsync(ServiceOptions $options = null);
+    public function getServiceStatsAsync(?ServiceOptions $options = null);
 
     /**
      * Creates the promise to set the properties of the service.
@@ -112,7 +112,7 @@ interface IBlob
      * then use setServiceProperties with this altered object.
      *
      * @param ServiceProperties           $serviceProperties new service properties.
-     * @param ServiceOptions $options           optional parameters
+     * @param ServiceOptions|null $options           optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -120,37 +120,37 @@ interface IBlob
      */
     public function setServicePropertiesAsync(
         ServiceProperties $serviceProperties,
-        ServiceOptions    $options = null
+        ?ServiceOptions $options = null
     );
 
     /**
     * Lists all of the containers in the given storage account.
     *
-    * @param BlobModels\ListContainersOptions $options optional parameters
+    * @param BlobModels\ListContainersOptions|null $options optional parameters
     *
     * @return BlobModels\ListContainersResult
     *
     * @see http://msdn.microsoft.com/en-us/library/windowsazure/dd179352.aspx
     */
-    public function listContainers(BlobModels\ListContainersOptions $options = null);
+    public function listContainers(?BlobModels\ListContainersOptions $options = null);
 
     /**
      * Create a promise for lists all of the containers in the given
      * storage account.
      *
-     * @param  BlobModels\ListContainersOptions $options The optional parameters.
+     * @param  BlobModels\ListContainersOptions|null $options The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function listContainersAsync(
-        BlobModels\ListContainersOptions $options = null
+        ?BlobModels\ListContainersOptions $options = null
     );
 
     /**
     * Creates a new container in the given storage account.
     *
     * @param string                            $container name
-    * @param BlobModels\CreateContainerOptions $options   optional parameters
+    * @param BlobModels\CreateContainerOptions|null $options   optional parameters
     *
     * @return void
     *
@@ -158,14 +158,14 @@ interface IBlob
     */
     public function createContainer(
         $container,
-        BlobModels\CreateContainerOptions $options = null
+        ?BlobModels\CreateContainerOptions $options = null
     );
 
     /**
      * Creates a new container in the given storage account.
      *
      * @param string                            $container The container name.
-     * @param BlobModels\CreateContainerOptions $options   The optional parameters.
+     * @param BlobModels\CreateContainerOptions|null $options   The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -173,14 +173,14 @@ interface IBlob
      */
     public function createContainerAsync(
         $container,
-        BlobModels\CreateContainerOptions $options = null
+        ?BlobModels\CreateContainerOptions $options = null
     );
 
     /**
     * Creates a new container in the given storage account.
     *
     * @param string                            $container name
-    * @param BlobModels\BlobServiceOptions     $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null     $options   optional parameters
     *
     * @return void
     *
@@ -188,27 +188,27 @@ interface IBlob
     */
     public function deleteContainer(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
      * Create a promise for deleting a container.
      *
      * @param  string                             $container name of the container
-     * @param  BlobModels\BlobServiceOptions      $options   optional parameters
+     * @param  BlobModels\BlobServiceOptions|null      $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function deleteContainerAsync(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
     * Returns all properties and metadata on the container.
     *
     * @param string                        $container name
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return BlobModels\GetContainerPropertiesResult
     *
@@ -216,14 +216,14 @@ interface IBlob
     */
     public function getContainerProperties(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
      * Create promise to return all properties and metadata on the container.
      *
      * @param string                        $container name
-     * @param BlobModels\BlobServiceOptions $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -231,14 +231,14 @@ interface IBlob
      */
     public function getContainerPropertiesAsync(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
     * Returns only user-defined metadata for the specified container.
     *
     * @param string                        $container name
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return BlobModels\GetContainerPropertiesResult
     *
@@ -246,7 +246,7 @@ interface IBlob
     */
     public function getContainerMetadata(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -254,7 +254,7 @@ interface IBlob
      * container.
      *
      * @param string                        $container name
-     * @param BlobModels\BlobServiceOptions $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -262,7 +262,7 @@ interface IBlob
      */
     public function getContainerMetadataAsync(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -270,7 +270,7 @@ interface IBlob
     * for the container.
     *
     * @param string                        $container name
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return BlobModels\GetContainerACLResult
     *
@@ -278,7 +278,7 @@ interface IBlob
     */
     public function getContainerAcl(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -286,7 +286,7 @@ interface IBlob
      * container-level access policies for the container.
      *
      * @param string                        $container The container name.
-     * @param BlobModels\BlobServiceOptions $options   The optional parameters.
+     * @param BlobModels\BlobServiceOptions|null $options   The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -294,7 +294,7 @@ interface IBlob
      */
     public function getContainerAclAsync(
         $container,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -302,7 +302,7 @@ interface IBlob
     *
     * @param string                        $container name
     * @param BlobModels\ContainerACL       $acl       access control list for container
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return void
     *
@@ -311,7 +311,7 @@ interface IBlob
     public function setContainerAcl(
         $container,
         BlobModels\ContainerACL $acl,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -320,7 +320,7 @@ interface IBlob
      *
      * @param string                        $container name
      * @param BlobModels\ContainerACL       $acl       access control list for container
-     * @param BlobModels\BlobServiceOptions $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -329,7 +329,7 @@ interface IBlob
     public function setContainerAclAsync(
         $container,
         BlobModels\ContainerACL $acl,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -337,7 +337,7 @@ interface IBlob
     *
     * @param string                        $container name
     * @param array                         $metadata  metadata key/value pair.
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return void
     *
@@ -346,7 +346,7 @@ interface IBlob
     public function setContainerMetadata(
         $container,
         array $metadata,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -354,7 +354,7 @@ interface IBlob
      *
      * @param string                        $container name
      * @param array                         $metadata  metadata key/value pair.
-     * @param BlobModels\BlobServiceOptions $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -363,14 +363,14 @@ interface IBlob
     public function setContainerMetadataAsync(
         $container,
         array $metadata,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
     * Lists all of the blobs in the given container.
     *
     * @param string                      $container name
-    * @param BlobModels\ListBlobsOptions $options   optional parameters
+    * @param BlobModels\ListBlobsOptions|null $options   optional parameters
     *
     * @return BlobModels\ListBlobsResult
     *
@@ -378,14 +378,14 @@ interface IBlob
     */
     public function listBlobs(
         $container,
-        BlobModels\ListBlobsOptions $options = null
+        ?BlobModels\ListBlobsOptions $options = null
     );
 
     /**
      * Creates promise to list all of the blobs in the given container.
      *
      * @param string                      $container The container name.
-     * @param BlobModels\ListBlobsOptions $options   The optional parameters.
+     * @param BlobModels\ListBlobsOptions|null $options   The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -393,7 +393,7 @@ interface IBlob
      */
     public function listBlobsAsync(
         $container,
-        BlobModels\ListBlobsOptions $options = null
+        ?BlobModels\ListBlobsOptions $options = null
     );
 
     /**
@@ -406,7 +406,7 @@ interface IBlob
     * @param int                          $length    specifies the maximum size
     * for the page blob, up to 1 TB. The page blob size must be aligned to
     * a 512-byte boundary.
-    * @param BlobModels\CreatePageBlobOptions $options   optional parameters
+    * @param BlobModels\CreatePageBlobOptions|null $options   optional parameters
     *
     * @return BlobModels\PutBlobResult
     *
@@ -416,7 +416,7 @@ interface IBlob
         $container,
         $blob,
         $length,
-        BlobModels\CreatePageBlobOptions $options = null
+        ?BlobModels\CreatePageBlobOptions $options = null
     );
 
     /**
@@ -431,7 +431,7 @@ interface IBlob
      *                                                1 TB. The page blob size
      *                                                must be aligned to a
      *                                                512-byte boundary.
-     * @param BlobModels\CreatePageBlobOptions $options   The optional parameters.
+     * @param BlobModels\CreatePageBlobOptions|null $options   The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -441,7 +441,7 @@ interface IBlob
         $container,
         $blob,
         $length,
-        BlobModels\CreatePageBlobOptions $options = null
+        ?BlobModels\CreatePageBlobOptions $options = null
     );
 
     /**
@@ -450,7 +450,7 @@ interface IBlob
      *
      * @param string                   $container The container name.
      * @param string                   $blob      The blob name.
-     * @param BlobModels\CreateBlobOptions $options   The optional parameters.
+     * @param BlobModels\CreateBlobOptions|null $options   The optional parameters.
      *
      * @return BlobModels\PutBlobResult
      *
@@ -459,7 +459,7 @@ interface IBlob
     public function createAppendBlob(
         $container,
         $blob,
-        BlobModels\CreateBlobOptions $options = null
+        ?BlobModels\CreateBlobOptions $options = null
     );
 
 
@@ -469,7 +469,7 @@ interface IBlob
      *
      * @param string                   $container The container name.
      * @param string                   $blob      The blob name.
-     * @param BlobModels\CreateBlobOptions $options   The optional parameters.
+     * @param BlobModels\CreateBlobOptions|null $options   The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -478,7 +478,7 @@ interface IBlob
     public function createAppendBlobAsync(
         $container,
         $blob,
-        BlobModels\CreateBlobOptions $options = null
+        ?BlobModels\CreateBlobOptions $options = null
     );
 
     /**
@@ -491,7 +491,7 @@ interface IBlob
     * @param string                            $container name of the container
     * @param string                            $blob      name of the blob
     * @param string|resource|StreamInterface   $content   content of the blob
-    * @param BlobModels\CreateBlockBlobOptions $options   optional parameters
+    * @param BlobModels\CreateBlockBlobOptions|null $options   optional parameters
     *
     * @return BlobModels\PutBlobResult
     *
@@ -501,7 +501,7 @@ interface IBlob
         $container,
         $blob,
         $content,
-        BlobModels\CreateBlockBlobOptions $options = null
+        ?BlobModels\CreateBlockBlobOptions $options = null
     );
 
     /**
@@ -517,7 +517,7 @@ interface IBlob
      * @param string                             $container The name of the container.
      * @param string                             $blob      The name of the blob.
      * @param string|resource|StreamInterface    $content   The content of the blob.
-     * @param BlobModels\CreateBlockBlobOptions  $options   The optional parameters.
+     * @param BlobModels\CreateBlockBlobOptions|null  $options   The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -527,7 +527,7 @@ interface IBlob
         $container,
         $blob,
         $content,
-        BlobModels\CreateBlockBlobOptions $options = null
+        ?BlobModels\CreateBlockBlobOptions $options = null
     );
 
     /**
@@ -537,7 +537,7 @@ interface IBlob
      * @param string                          $blob      The name of the blob.
      * @param int                             $length    The length of the blob.
      * @param string|resource|StreamInterface $content   The content of the blob.
-     * @param BlobModels\CreatePageBlobFromContentOptions
+     * @param BlobModels\CreatePageBlobFromContentOptions|null
      *                                        $options   The optional parameters.
      *
      * @return BlobModels\GetBlobPropertiesResult
@@ -549,7 +549,7 @@ interface IBlob
         $blob,
         $length,
         $content,
-        BlobModels\CreatePageBlobFromContentOptions $options = null
+        ?BlobModels\CreatePageBlobFromContentOptions $options = null
     );
 
     /**
@@ -560,7 +560,7 @@ interface IBlob
      * @param string                          $blob      The name of the blob.
      * @param int                             $length    The length of the blob.
      * @param string|resource|StreamInterface $content   The content of the blob.
-     * @param BlobModels\CreatePageBlobFromContentOptions
+     * @param BlobModels\CreatePageBlobFromContentOptions|null
      *                                        $options   The optional parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -572,7 +572,7 @@ interface IBlob
         $blob,
         $length,
         $content,
-        BlobModels\CreatePageBlobFromContentOptions $options = null
+        ?BlobModels\CreatePageBlobFromContentOptions $options = null
     );
 
     /**
@@ -582,7 +582,7 @@ interface IBlob
     * @param string                            $blob      name of the blob
     * @param Range                             $range     Can be up to the value
     * of the blob's full size.
-    * @param BlobModels\CreateBlobPagesOptions $options   optional parameters
+    * @param BlobModels\CreateBlobPagesOptions|null $options   optional parameters
     *
     * @return BlobModels\CreateBlobPagesResult.
     *
@@ -592,7 +592,7 @@ interface IBlob
         $container,
         $blob,
         Range $range,
-        BlobModels\CreateBlobPagesOptions $options = null
+        ?BlobModels\CreateBlobPagesOptions $options = null
     );
 
     /**
@@ -605,7 +605,7 @@ interface IBlob
      *                                                     Note that ranges must be
      *                                                     aligned to 512 (0-511,
      *                                                     512-1023)
-     * @param BlobModels\CreateBlobPagesOptions $options   optional parameters
+     * @param BlobModels\CreateBlobPagesOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -615,7 +615,7 @@ interface IBlob
         $container,
         $blob,
         Range $range,
-        BlobModels\CreateBlobPagesOptions $options = null
+        ?BlobModels\CreateBlobPagesOptions $options = null
     );
 
     /**
@@ -625,7 +625,7 @@ interface IBlob
     * @param string                            $blob      name of the blob
     * @param Range                             $range     Can be up to 4 MB in size
     * @param string                            $content   the blob contents
-    * @param BlobModels\CreateBlobPagesOptions $options   optional parameters
+    * @param BlobModels\CreateBlobPagesOptions|null $options   optional parameters
     *
     * @return BlobModels\CreateBlobPagesResult
     *
@@ -636,7 +636,7 @@ interface IBlob
         $blob,
         Range $range,
         $content,
-        BlobModels\CreateBlobPagesOptions $options = null
+        ?BlobModels\CreateBlobPagesOptions $options = null
     );
 
     /**
@@ -649,7 +649,7 @@ interface IBlob
      *                                                     must be aligned to 512
      *                                                     (0-511, 512-1023)
      * @param string|resource|StreamInterface   $content   the blob contents.
-     * @param BlobModels\CreateBlobPagesOptions $options   optional parameters
+     * @param BlobModels\CreateBlobPagesOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -660,7 +660,7 @@ interface IBlob
         $blob,
         Range $range,
         $content,
-        BlobModels\CreateBlobPagesOptions $options = null
+        ?BlobModels\CreateBlobPagesOptions $options = null
     );
 
     /**
@@ -672,7 +672,7 @@ interface IBlob
     * 64 bytes in size. For a given blob, the length of the value specified for the
     * blockid parameter must be the same size for each block.
     * @param string                            $content   the blob block contents
-    * @param BlobModels\CreateBlobBlockOptions $options   optional parameters
+    * @param BlobModels\CreateBlobBlockOptions|null $options   optional parameters
     *
     * @return void
     *
@@ -683,7 +683,7 @@ interface IBlob
         $blob,
         $blockId,
         $content,
-        BlobModels\CreateBlobBlockOptions $options = null
+        ?BlobModels\CreateBlobBlockOptions $options = null
     );
 
     /**
@@ -701,7 +701,7 @@ interface IBlob
      *                                                       be the same size for
      *                                                       each block.
      * @param resource|string|StreamInterface     $content   the blob block contents
-     * @param BlobModels\CreateBlobBlockOptions   $options   optional parameters
+     * @param BlobModels\CreateBlobBlockOptions|null   $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -712,7 +712,7 @@ interface IBlob
         $blob,
         $blockId,
         $content,
-        BlobModels\CreateBlobBlockOptions $options = null
+        ?BlobModels\CreateBlobBlockOptions $options = null
     );
 
     /**
@@ -721,7 +721,7 @@ interface IBlob
      * @param string                          $container name of the container
      * @param string                          $blob      name of the blob
      * @param resource|string|StreamInterface $content   the blob block contents
-     * @param BlobModels\AppendBlockOptions   $options   optional parameters
+     * @param BlobModels\AppendBlockOptions|null   $options   optional parameters
      *
      * @return BlobModels\AppendBlockResult
      *
@@ -731,7 +731,7 @@ interface IBlob
         $container,
         $blob,
         $content,
-        BlobModels\AppendBlockOptions $options = null
+        ?BlobModels\AppendBlockOptions $options = null
     );
 
     /**
@@ -740,7 +740,7 @@ interface IBlob
      * @param string                          $container name of the container
      * @param string                          $blob      name of the blob
      * @param resource|string|StreamInterface $content   the blob block contents
-     * @param BlobModels\AppendBlockOptions   $options   optional parameters
+     * @param BlobModels\AppendBlockOptions|null   $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -750,7 +750,7 @@ interface IBlob
         $container,
         $blob,
         $content,
-        BlobModels\AppendBlockOptions $options = null
+        ?BlobModels\AppendBlockOptions $options = null
     );
 
     /**
@@ -767,7 +767,7 @@ interface IBlob
     * @param string                                  $container name of the container
     * @param string                                  $blob      name of the blob
     * @param BlobModels\BlockList|BlobModels\Block[] $blockList the block list entries
-    * @param BlobModels\CommitBlobBlocksOptions      $options   optional parameters
+    * @param BlobModels\CommitBlobBlocksOptions|null      $options   optional parameters
     *
     * @return BlobModels\PutBlobResult
     *
@@ -777,7 +777,7 @@ interface IBlob
         $container,
         $blob,
         $blockList,
-        BlobModels\CommitBlobBlocksOptions $options = null
+        ?BlobModels\CommitBlobBlocksOptions $options = null
     );
 
     /**
@@ -795,7 +795,7 @@ interface IBlob
      * @param string                                  $blob      name of the blob
      * @param BlobModels\BlockList|BlobModels\Block[] $blockList the block list
      *                                                           entries
-     * @param BlobModels\CommitBlobBlocksOptions      $options   optional parameters
+     * @param BlobModels\CommitBlobBlocksOptions|null      $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -805,7 +805,7 @@ interface IBlob
         $container,
         $blob,
         $blockList,
-        BlobModels\CommitBlobBlocksOptions $options = null
+        ?BlobModels\CommitBlobBlocksOptions $options = null
     );
 
     /**
@@ -821,7 +821,7 @@ interface IBlob
     *
     * @param string                           $container name of the container
     * @param string                           $blob      name of the blob
-    * @param BlobModels\ListBlobBlocksOptions $options   optional parameters
+    * @param BlobModels\ListBlobBlocksOptions|null $options   optional parameters
     *
     * @return BlobModels\ListBlobBlocksResult
     *
@@ -830,7 +830,7 @@ interface IBlob
     public function listBlobBlocks(
         $container,
         $blob,
-        BlobModels\ListBlobBlocksOptions $options = null
+        ?BlobModels\ListBlobBlocksOptions $options = null
     );
 
     /**
@@ -847,7 +847,7 @@ interface IBlob
      *
      * @param string                           $container name of the container
      * @param string                           $blob      name of the blob
-     * @param BlobModels\ListBlobBlocksOptions $options   optional parameters
+     * @param BlobModels\ListBlobBlocksOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -856,7 +856,7 @@ interface IBlob
     public function listBlobBlocksAsync(
         $container,
         $blob,
-        BlobModels\ListBlobBlocksOptions $options = null
+        ?BlobModels\ListBlobBlocksOptions $options = null
     );
 
     /**
@@ -864,7 +864,7 @@ interface IBlob
     *
     * @param string                              $container name of the container
     * @param string                              $blob      name of the blob
-    * @param BlobModels\GetBlobPropertiesOptions $options   optional parameters
+    * @param BlobModels\GetBlobPropertiesOptions|null $options   optional parameters
     *
     * @return BlobModels\GetBlobPropertiesResult
     *
@@ -873,7 +873,7 @@ interface IBlob
     public function getBlobProperties(
         $container,
         $blob,
-        BlobModels\GetBlobPropertiesOptions $options = null
+        ?BlobModels\GetBlobPropertiesOptions $options = null
     );
 
     /**
@@ -881,7 +881,7 @@ interface IBlob
      *
      * @param string                              $container name of the container
      * @param string                              $blob      name of the blob
-     * @param BlobModels\GetBlobPropertiesOptions $options   optional parameters
+     * @param BlobModels\GetBlobPropertiesOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -890,7 +890,7 @@ interface IBlob
     public function getBlobPropertiesAsync(
         $container,
         $blob,
-        BlobModels\GetBlobPropertiesOptions $options = null
+        ?BlobModels\GetBlobPropertiesOptions $options = null
     );
 
     /**
@@ -898,7 +898,7 @@ interface IBlob
     *
     * @param string                            $container name of the container
     * @param string                            $blob      name of the blob
-    * @param BlobModels\GetBlobMetadataOptions $options   optional parameters
+    * @param BlobModels\GetBlobMetadataOptions|null $options   optional parameters
     *
     * @return BlobModels\GetBlobMetadataResult
     *
@@ -907,7 +907,7 @@ interface IBlob
     public function getBlobMetadata(
         $container,
         $blob,
-        BlobModels\GetBlobMetadataOptions $options = null
+        ?BlobModels\GetBlobMetadataOptions $options = null
     );
 
     /**
@@ -915,7 +915,7 @@ interface IBlob
      *
      * @param string                            $container name of the container
      * @param string                            $blob      name of the blob
-     * @param BlobModels\GetBlobMetadataOptions $options   optional parameters
+     * @param BlobModels\GetBlobMetadataOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -924,7 +924,7 @@ interface IBlob
     public function getBlobMetadataAsync(
         $container,
         $blob,
-        BlobModels\GetBlobMetadataOptions $options = null
+        ?BlobModels\GetBlobMetadataOptions $options = null
     );
 
     /**
@@ -933,7 +933,7 @@ interface IBlob
     *
     * @param string                               $container name of the container
     * @param string                               $blob      name of the blob
-    * @param BlobModels\ListPageBlobRangesOptions $options   optional parameters
+    * @param BlobModels\ListPageBlobRangesOptions|null $options   optional parameters
     *
     * @return BlobModels\ListPageBlobRangesResult
     *
@@ -942,7 +942,7 @@ interface IBlob
     public function listPageBlobRanges(
         $container,
         $blob,
-        BlobModels\ListPageBlobRangesOptions $options = null
+        ?BlobModels\ListPageBlobRangesOptions $options = null
     );
 
     /**
@@ -952,7 +952,7 @@ interface IBlob
      * @param string                               $container name of the
      *                                                        container
      * @param string                               $blob      name of the blob
-     * @param BlobModels\ListPageBlobRangesOptions $options   optional parameters
+     * @param BlobModels\ListPageBlobRangesOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -961,7 +961,7 @@ interface IBlob
     public function listPageBlobRangesAsync(
         $container,
         $blob,
-        BlobModels\ListPageBlobRangesOptions $options = null
+        ?BlobModels\ListPageBlobRangesOptions $options = null
     );
 
     /**
@@ -979,7 +979,7 @@ interface IBlob
      *                                                                    should be prior to the
      *                                                                    snapshot time defined
      *                                                                    in `options`
-     * @param BlobModels\ListPageBlobRangesOptions $options               optional parameters
+     * @param BlobModels\ListPageBlobRangesOptions|null $options               optional parameters
      *
      * @return BlobModels\ListPageBlobRangesDiffResult
      *
@@ -989,7 +989,7 @@ interface IBlob
         $container,
         $blob,
         $previousSnapshotTime,
-        BlobModels\ListPageBlobRangesOptions $options = null
+        ?BlobModels\ListPageBlobRangesOptions $options = null
     );
 
     /**
@@ -1008,7 +1008,7 @@ interface IBlob
      *                                                                      should be prior to the
      *                                                                      snapshot time defined
      *                                                                      in `options`
-     * @param BlobModels\ListPageBlobRangesOptions $options                 optional parameters
+     * @param BlobModels\ListPageBlobRangesOptions|null $options                 optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1018,7 +1018,7 @@ interface IBlob
         $container,
         $blob,
         $previousSnapshotTime,
-        BlobModels\ListPageBlobRangesOptions $options = null
+        ?BlobModels\ListPageBlobRangesOptions $options = null
     );
 
     /**
@@ -1026,7 +1026,7 @@ interface IBlob
      *
      * @param string                        $container name
      * @param string                        $blob      name of the blob
-     * @param BlobModels\SetBlobTierOptions $options   optional parameters
+     * @param BlobModels\SetBlobTierOptions|null $options   optional parameters
      *
      * @return void
      *
@@ -1035,7 +1035,7 @@ interface IBlob
     public function setBlobTier(
         $container,
         $blob,
-        BlobModels\SetBlobTierOptions $options = null
+        ?BlobModels\SetBlobTierOptions $options = null
     );
 
     /**
@@ -1043,7 +1043,7 @@ interface IBlob
      *
      * @param string                        $container name
      * @param string                        $blob      name of the blob
-     * @param BlobModels\SetBlobTierOptions $options   optional parameters
+     * @param BlobModels\SetBlobTierOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1052,7 +1052,7 @@ interface IBlob
     public function setBlobTierAsync(
         $container,
         $blob,
-        BlobModels\SetBlobTierOptions $options = null
+        ?BlobModels\SetBlobTierOptions $options = null
     );
 
     /**
@@ -1060,7 +1060,7 @@ interface IBlob
     *
     * @param string                              $container name of the container
     * @param string                              $blob      name of the blob
-    * @param BlobModels\SetBlobPropertiesOptions $options   optional parameters
+    * @param BlobModels\SetBlobPropertiesOptions|null $options   optional parameters
     *
     * @return BlobModels\SetBlobPropertiesResult
     *
@@ -1069,7 +1069,7 @@ interface IBlob
     public function setBlobProperties(
         $container,
         $blob,
-        BlobModels\SetBlobPropertiesOptions $options = null
+        ?BlobModels\SetBlobPropertiesOptions $options = null
     );
 
     /**
@@ -1077,7 +1077,7 @@ interface IBlob
      *
      * @param string                              $container name of the container
      * @param string                              $blob      name of the blob
-     * @param BlobModels\SetBlobPropertiesOptions $options   optional parameters
+     * @param BlobModels\SetBlobPropertiesOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1086,7 +1086,7 @@ interface IBlob
     public function setBlobPropertiesAsync(
         $container,
         $blob,
-        BlobModels\SetBlobPropertiesOptions $options = null
+        ?BlobModels\SetBlobPropertiesOptions $options = null
     );
 
     /**
@@ -1095,7 +1095,7 @@ interface IBlob
     * @param string                         $container name of the container
     * @param string                         $blob      name of the blob
     * @param array                          $metadata  key/value pair representation
-    * @param BlobModels\BlobServiceOptions  $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null  $options   optional parameters
     *
     * @return BlobModels\SetBlobMetadataResult
     *
@@ -1105,7 +1105,7 @@ interface IBlob
         $container,
         $blob,
         array $metadata,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1114,7 +1114,7 @@ interface IBlob
      * @param string                            $container name of the container
      * @param string                            $blob      name of the blob
      * @param array                             $metadata  key/value pair representation
-     * @param BlobModels\BlobServiceOptions     $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null     $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1124,7 +1124,7 @@ interface IBlob
         $container,
         $blob,
         array $metadata,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1135,7 +1135,7 @@ interface IBlob
      * @param string                    $path      The path and name of the file
      * @param string                    $container name of the container
      * @param string                    $blob      name of the blob
-     * @param BlobModels\GetBlobOptions $options   optional parameters
+     * @param BlobModels\GetBlobOptions|null $options   optional parameters
      *
      * @return BlobModels\GetBlobResult
      *
@@ -1145,7 +1145,7 @@ interface IBlob
         $path,
         $container,
         $blob,
-        BlobModels\GetBlobOptions $options = null
+        ?BlobModels\GetBlobOptions $options = null
     );
 
     /**
@@ -1156,7 +1156,7 @@ interface IBlob
      * @param string                    $path      The path and name of the file
      * @param string                    $container name of the container
      * @param string                    $blob      name of the blob
-     * @param BlobModels\GetBlobOptions $options   optional parameters
+     * @param BlobModels\GetBlobOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \Exception
@@ -1166,7 +1166,7 @@ interface IBlob
         $path,
         $container,
         $blob,
-        BlobModels\GetBlobOptions $options = null
+        ?BlobModels\GetBlobOptions $options = null
     );
 
     /**
@@ -1174,7 +1174,7 @@ interface IBlob
      *
      * @param string                          $container name of the container
      * @param string                          $blob      name of the blob
-     * @param BlobModels\UndeleteBlobOptions  $options   optional parameters
+     * @param BlobModels\UndeleteBlobOptions|null  $options   optional parameters
      *
      * @return void
      *
@@ -1183,7 +1183,7 @@ interface IBlob
     public function undeleteBlob(
         $container,
         $blob,
-        BlobModels\UndeleteBlobOptions $options = null
+        ?BlobModels\UndeleteBlobOptions $options = null
     );
     
     /**
@@ -1191,7 +1191,7 @@ interface IBlob
      *
      * @param string                          $container name of the container
      * @param string                          $blob      name of the blob
-     * @param BlobModels\UndeleteBlobOptions  $options   optional parameters
+     * @param BlobModels\UndeleteBlobOptions|null  $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1200,7 +1200,7 @@ interface IBlob
     public function undeleteBlobAsync(
         $container,
         $blob,
-        BlobModels\UndeleteBlobOptions $options = null
+        ?BlobModels\UndeleteBlobOptions $options = null
     );
     
     /**
@@ -1209,7 +1209,7 @@ interface IBlob
     *
     * @param string                    $container name of the container
     * @param string                    $blob      name of the blob
-    * @param BlobModels\GetBlobOptions $options   optional parameters
+    * @param BlobModels\GetBlobOptions|null $options   optional parameters
     *
     * @return BlobModels\GetBlobResult
     *
@@ -1218,7 +1218,7 @@ interface IBlob
     public function getBlob(
         $container,
         $blob,
-        BlobModels\GetBlobOptions $options = null
+        ?BlobModels\GetBlobOptions $options = null
     );
 
     /**
@@ -1227,7 +1227,7 @@ interface IBlob
      *
      * @param string                    $container name of the container
      * @param string                    $blob      name of the blob
-     * @param BlobModels\GetBlobOptions $options   optional parameters
+     * @param BlobModels\GetBlobOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1236,7 +1236,7 @@ interface IBlob
     public function getBlobAsync(
         $container,
         $blob,
-        BlobModels\GetBlobOptions $options = null
+        ?BlobModels\GetBlobOptions $options = null
     );
 
     /**
@@ -1248,7 +1248,7 @@ interface IBlob
      *
      * @param string                       $container name of the container
      * @param string                       $blob      name of the blob
-     * @param BlobModels\DeleteBlobOptions $options   optional parameters
+     * @param BlobModels\DeleteBlobOptions|null $options   optional parameters
      *
      * @return void
      *
@@ -1257,7 +1257,7 @@ interface IBlob
     public function deleteBlob(
         $container,
         $blob,
-        BlobModels\DeleteBlobOptions $options = null
+        ?BlobModels\DeleteBlobOptions $options = null
     );
 
     /**
@@ -1269,7 +1269,7 @@ interface IBlob
      *
      * @param string                       $container name of the container
      * @param string                       $blob      name of the blob
-     * @param BlobModels\DeleteBlobOptions $options   optional parameters
+     * @param BlobModels\DeleteBlobOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1278,7 +1278,7 @@ interface IBlob
     public function deleteBlobAsync(
         $container,
         $blob,
-        BlobModels\DeleteBlobOptions $options = null
+        ?BlobModels\DeleteBlobOptions $options = null
     );
 
     /**
@@ -1286,7 +1286,7 @@ interface IBlob
     *
     * @param string                               $container name of the container
     * @param string                               $blob      name of the blob
-    * @param BlobModels\CreateBlobSnapshotOptions $options   optional parameters
+    * @param BlobModels\CreateBlobSnapshotOptions|null $options   optional parameters
     *
     * @return BlobModels\CreateBlobSnapshotResult
     *
@@ -1295,7 +1295,7 @@ interface IBlob
     public function createBlobSnapshot(
         $container,
         $blob,
-        BlobModels\CreateBlobSnapshotOptions $options = null
+        ?BlobModels\CreateBlobSnapshotOptions $options = null
     );
 
     /**
@@ -1305,7 +1305,7 @@ interface IBlob
      *                                                        container.
      * @param string                               $blob      The name of the
      *                                                        blob.
-     * @param BlobModels\CreateBlobSnapshotOptions $options   The optional
+     * @param BlobModels\CreateBlobSnapshotOptions|null $options   The optional
      *                                                        parameters.
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1315,7 +1315,7 @@ interface IBlob
     public function createBlobSnapshotAsync(
         $container,
         $blob,
-        BlobModels\CreateBlobSnapshotOptions $options = null
+        ?BlobModels\CreateBlobSnapshotOptions $options = null
     );
 
     /**
@@ -1325,7 +1325,7 @@ interface IBlob
     * @param string                     $destinationBlob      name of blob
     * @param string                     $sourceContainer      name of container
     * @param string                     $sourceBlob           name of blob
-    * @param BlobModels\CopyBlobOptions $options              optional parameters
+    * @param BlobModels\CopyBlobOptions|null $options              optional parameters
     *
     * @return BlobModels\CopyBlobResult
     *
@@ -1336,7 +1336,7 @@ interface IBlob
         $destinationBlob,
         $sourceContainer,
         $sourceBlob,
-        BlobModels\CopyBlobOptions $options = null
+        ?BlobModels\CopyBlobOptions $options = null
     );
 
     /**
@@ -1352,7 +1352,7 @@ interface IBlob
      *                                                         container
      * @param string                     $sourceBlob           name of the source
      *                                                         blob
-     * @param BlobModels\CopyBlobOptions $options              optional parameters
+     * @param BlobModels\CopyBlobOptions|null $options              optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1363,7 +1363,7 @@ interface IBlob
         $destinationBlob,
         $sourceContainer,
         $sourceBlob,
-        BlobModels\CopyBlobOptions $options = null
+        ?BlobModels\CopyBlobOptions $options = null
     );
 
     /**
@@ -1378,7 +1378,7 @@ interface IBlob
      * @param string                            $sourceURL            URL of the
      *                                                                source
      *                                                                resource
-     * @param BlobModels\CopyBlobFromURLOptions $options              optional
+     * @param BlobModels\CopyBlobFromURLOptions|null $options              optional
      *                                                                parameters
      *
      * @return BlobModels\CopyBlobResult
@@ -1389,7 +1389,7 @@ interface IBlob
         $destinationContainer,
         $destinationBlob,
         $sourceURL,
-        BlobModels\CopyBlobFromURLOptions $options = null
+        ?BlobModels\CopyBlobFromURLOptions $options = null
     );
 
     /**
@@ -1404,7 +1404,7 @@ interface IBlob
      * @param string                            $sourceURL            URL of the
      *                                                                source
      *                                                                resource
-     * @param BlobModels\CopyBlobFromURLOptions $options              optional
+     * @param BlobModels\CopyBlobFromURLOptions|null $options              optional
      *                                                                parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1415,7 +1415,7 @@ interface IBlob
         $destinationContainer,
         $destinationBlob,
         $sourceURL,
-        BlobModels\CopyBlobFromURLOptions $options = null
+        ?BlobModels\CopyBlobFromURLOptions $options = null
     );
 
     /**
@@ -1424,7 +1424,7 @@ interface IBlob
      * @param string                        $container            name of the container
      * @param string                        $blob                 name of the blob
      * @param string                        $copyId               copy operation identifier.
-     * @param BlobModels\BlobServiceOptions $options              optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options              optional parameters
      *
      * @return void
      *
@@ -1434,7 +1434,7 @@ interface IBlob
         $container,
         $blob,
         $copyId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1443,7 +1443,7 @@ interface IBlob
      * @param string                        $container            name of the container
      * @param string                        $blob                 name of the blob
      * @param string                        $copyId               copy operation identifier.
-     * @param BlobModels\BlobServiceOptions $options              optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options              optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1453,7 +1453,7 @@ interface IBlob
         $container,
         $blob,
         $copyId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1466,7 +1466,7 @@ interface IBlob
      * @param int                        $leaseDuration     the lease duration. A non-infinite
      *                                                      lease can be between 15 and 60 seconds.
      *                                                      Default is never to expire.
-     * @param BlobModels\BlobServiceOptions  $options       optional parameters
+     * @param BlobModels\BlobServiceOptions|null  $options       optional parameters
      *
      * @return BlobModels\LeaseResult
      *
@@ -1477,7 +1477,7 @@ interface IBlob
         $blob,
         $proposedLeaseId = null,
         $leaseDuration = null,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1490,7 +1490,7 @@ interface IBlob
      * @param int                        $leaseDuration     the lease duration. A non-infinite
      *                                                      lease can be between 15 and 60 seconds.
      *                                                      Default is never to expire.
-     * @param BlobModels\BlobServiceOptions  $options       optional parameters
+     * @param BlobModels\BlobServiceOptions|null  $options       optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1501,7 +1501,7 @@ interface IBlob
         $blob,
         $proposedLeaseId = null,
         $leaseDuration = null,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1511,7 +1511,7 @@ interface IBlob
      * @param string                        $blob              name of the blob
      * @param string                        $leaseId           lease id when acquiring
      * @param string                        $proposedLeaseId   lease id when acquiring
-     * @param BlobModels\BlobServiceOptions $options           optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options           optional parameters
      *
      * @return BlobModels\LeaseResult
      *
@@ -1522,7 +1522,7 @@ interface IBlob
         $blob,
         $leaseId,
         $proposedLeaseId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1532,7 +1532,7 @@ interface IBlob
      * @param string                        $blob              name of the blob
      * @param string                        $leaseId           lease id when acquiring
      * @param string                        $proposedLeaseId   the proposed lease id
-     * @param BlobModels\BlobServiceOptions $options           optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options           optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1543,7 +1543,7 @@ interface IBlob
         $blob,
         $leaseId,
         $proposedLeaseId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1552,7 +1552,7 @@ interface IBlob
     * @param string                        $container name of the container
     * @param string                        $blob      name of the blob
     * @param string                        $leaseId   lease id when acquiring
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return BlobModels\AcquireLeaseResult
     *
@@ -1562,7 +1562,7 @@ interface IBlob
         $container,
         $blob,
         $leaseId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1571,7 +1571,7 @@ interface IBlob
      * @param string                        $container name of the container
      * @param string                        $blob      name of the blob
      * @param string                        $leaseId   lease id when acquiring
-     * @param BlobModels\BlobServiceOptions $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1581,7 +1581,7 @@ interface IBlob
         $container,
         $blob,
         $leaseId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
 
@@ -1592,7 +1592,7 @@ interface IBlob
     * @param string                        $container name of the container
     * @param string                        $blob      name of the blob
     * @param string                        $leaseId   lease id when acquiring
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return void
     *
@@ -1602,7 +1602,7 @@ interface IBlob
         $container,
         $blob,
         $leaseId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1612,7 +1612,7 @@ interface IBlob
      * @param string                        $container name of the container
      * @param string                        $blob      name of the blob
      * @param string                        $leaseId   lease id when acquiring
-     * @param BlobModels\BlobServiceOptions $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1622,7 +1622,7 @@ interface IBlob
         $container,
         $blob,
         $leaseId,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1631,7 +1631,7 @@ interface IBlob
     *
     * @param string                        $container name of the container
     * @param string                        $blob      name of the blob
-    * @param BlobModels\BlobServiceOptions $options   optional parameters
+    * @param BlobModels\BlobServiceOptions|null $options   optional parameters
     *
     * @return void
     *
@@ -1641,7 +1641,7 @@ interface IBlob
         $container,
         $blob,
         $breakPeriod = null,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 
     /**
@@ -1650,7 +1650,7 @@ interface IBlob
      *
      * @param string                        $container name of the container
      * @param string                        $blob      name of the blob
-     * @param BlobModels\BlobServiceOptions $options   optional parameters
+     * @param BlobModels\BlobServiceOptions|null $options   optional parameters
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
@@ -1660,6 +1660,6 @@ interface IBlob
         $container,
         $blob,
         $breakPeriod = null,
-        BlobModels\BlobServiceOptions $options = null
+        ?BlobModels\BlobServiceOptions $options = null
     );
 }

@@ -98,11 +98,11 @@ class Container
     /**
      * Sets container metadata.
      *
-     * @param array $metadata value.
+     * @param array|null $metadata value.
      *
      * @return void
      */
-    public function setMetadata(array $metadata = null)
+    public function setMetadata(?array $metadata = null)
     {
         $this->_metadata = $metadata;
     }
