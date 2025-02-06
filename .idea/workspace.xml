@@ -8,6 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a0eec6d-fbed-44f7-90dc-e567fa173b33" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +80,8 @@
       <updated>1653032147059</updated>
       <workItem from="1653032149923" duration="391000" />
       <workItem from="1738830845784" duration="4300000" />
-      <workItem from="1738836210115" duration="35000" />
+      <workItem from="1738836210115" duration="61000" />
+      <workItem from="1738836401841" duration="78000" />
     </task>
     <servers />
   </component>
